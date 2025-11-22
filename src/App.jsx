@@ -1,4 +1,3 @@
-import "./App.css";
 import { ToastContainer } from "react-toastify";
 
 import {
@@ -39,11 +38,11 @@ function App() {
             { index: true, element: <Dashboard /> }, // default page
 
             {
-              path: "/reports",
+              path: "reports",
               element: <Reports />,
             },
             {
-              path: "/settings",
+              path: "settings",
               element: <Settings />,
             },
           ],
@@ -53,14 +52,14 @@ function App() {
     },
     {
       element: <PublicRoute />,
-      children: [{ path: "/auth", element: <AuthPage /> }],
+      children: [{ path: "auth", element: <AuthPage /> }],
     },
     {
       path: "*",
       element: localStorage.getItem("accessToken") ? (
         <Navigate to="/" replace />
       ) : (
-        <Navigate to="/auth" replace />
+        <Navigate to="auth" replace />
       ),
     },
   ]);
