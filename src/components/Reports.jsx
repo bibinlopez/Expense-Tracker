@@ -2,7 +2,9 @@ import axios from "axios";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { dateValues } from "../utils/helper";
+
+import TitleCard from "./TitleCard";
+import { dateValues } from "../helper/helper";
 
 const Reports = () => {
   const token = localStorage.getItem("accessToken");
@@ -37,28 +39,12 @@ const Reports = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="mb-4">Reports</h1>
-
-          <div className="flex items-center justify-between bg-white rounded-lg p-6 shadow-sm">
-            <button
-              onClick={() => {
-                setMonths(months - 1);
-              }}
-            >
-              <ChevronLeft className="w-7 h-7" />
-            </button>
-
-            <h2 className="text-xl">
-              {monthStr} {year}
-            </h2>
-
-            <button
-              onClick={() => {
-                setMonths(months + 1);
-              }}
-            >
-              <ChevronRight className="w-7 h-7" />
-            </button>
-          </div>
+          <TitleCard
+            months={months}
+            setMonths={setMonths}
+            monthStr={monthStr}
+            year={year}
+          />
         </div>
         {/* Table */}
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
