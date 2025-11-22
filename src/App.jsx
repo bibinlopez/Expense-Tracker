@@ -1,30 +1,3 @@
-// import "./App.css";
-// import AuthPage from "./components/AuthPage";
-// import CategoryModal from "./components/CategoryModal";
-// import Dashboard from "./components/Dashboard";
-// import ExpenseModal from "./components/ExpenseModal";
-// import Navigation from "./components/Navigation";
-// import Reports from "./components/Reports";
-// import Settings from "./components/Settings";
-// import { ToastContainer } from "react-toastify";
-
-// function App() {
-//   return (
-//     <>
-//       <ToastContainer autoClose={2000} position="top-center" />
-//       {/* <Dashboard /> */}
-//       {/* <Reports /> */}
-//       {/* <Settings /> */}
-//       {/* <Navigation /> */}
-//       {/* <ExpenseModal /> */}
-//       {/* <CategoryModal /> */}
-//       <AuthPage />
-//     </>
-//   );
-// }
-
-// export default App;
-
 import "./App.css";
 import { ToastContainer } from "react-toastify";
 
@@ -36,6 +9,9 @@ import {
 } from "react-router-dom";
 import AuthPage from "./components/AuthPage";
 import Dashboard from "./components/Dashboard";
+import HomeLayout from "./components/HomeLayout";
+import Reports from "./components/Reports";
+import Settings from "./components/Settings";
 
 function App() {
   // Protected Route
@@ -58,7 +34,19 @@ function App() {
       children: [
         {
           path: "/",
-          element: <Dashboard />,
+          element: <HomeLayout />,
+          children: [
+            { index: true, element: <Dashboard /> }, // default page
+
+            {
+              path: "/reports",
+              element: <Reports />,
+            },
+            {
+              path: "/settings",
+              element: <Settings />,
+            },
+          ],
         },
       ],
       errorElement: <div>error page</div>,

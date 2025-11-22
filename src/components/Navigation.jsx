@@ -6,34 +6,38 @@ import {
   SettingsIcon,
   TrendingUp,
 } from "lucide-react";
-import React from "react";
+
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
+  const linkClassesSidebar = ({ isActive }) =>
+    `w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors  
+     ${
+       isActive ? "bg-blue-50 text-blue-600" : "text-gray-700 hover:bg-gray-200"
+     }`;
+  const linkClassesBottom = ({ isActive }) =>
+    `flex flex-col items-center justify-center gap-1 
+     ${isActive ? " text-blue-600" : "text-gray-600"}`;
+
   return (
     <>
       {/* Mobile Bottom Navigation */}
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t justify-between border-gray-200 md:hidden">
         <div className="grid grid-cols-3 h-16">
-          <button
-            className={`flex flex-col items-center justify-center gap-1 text-blue-600 text-gray-600`}
-          >
+          <NavLink to="/" className={linkClassesBottom}>
             <LayoutDashboard className="w-6 h-6" />
             <span className="text-xs">Dashboard</span>
-          </button>
+          </NavLink>
 
-          <button
-            className={`flex flex-col items-center justify-center gap-1  text-blue-600`}
-          >
+          <NavLink to="/reports" className={linkClassesBottom}>
             <TrendingUp className="w-6 h-6" />
             <span className="text-xs">Reports</span>
-          </button>
+          </NavLink>
 
-          <button
-            className={`flex flex-col items-center justify-center gap-1 text-gray-600`}
-          >
+          <NavLink to="settings" className={linkClassesBottom}>
             <SettingsIcon className="w-6 h-6" />
             <span className="text-xs">Settings</span>
-          </button>
+          </NavLink>
         </div>
       </nav>
 
@@ -47,27 +51,20 @@ const Navigation = () => {
         </div>
 
         <div className="space-y-2 flex-1">
-          <button
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors  bg-blue-50 text-blue-600`}
-          >
+          <NavLink to="/" className={linkClassesSidebar}>
             <LayoutDashboard className="w-5 h-5" />
             <span>Dashboard</span>
-          </button>
+          </NavLink>
 
-          <button
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-gray-700 hover:bg-gray-50"
-       `}
-          >
+          <NavLink to="/reports" className={linkClassesSidebar}>
             <TrendingUp className="w-5 h-5" />
             <span>Reports</span>
-          </button>
+          </NavLink>
 
-          <button
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-gray-700 hover:bg-gray-50`}
-          >
+          <NavLink to="/settings" className={linkClassesSidebar}>
             <SettingsIcon className="w-5 h-5" />
             <span>Settings</span>
-          </button>
+          </NavLink>
         </div>
 
         <button className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
