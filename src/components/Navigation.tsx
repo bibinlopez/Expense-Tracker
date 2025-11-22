@@ -39,11 +39,11 @@ const Navigation = () => {
 
       {/* Desktop Side Navigation */}
       <nav className="hidden md:flex fixed left-0 top-0 bottom-0 w-64 bg-white border-r border-gray-200 flex-col p-6">
-        <div className="flex mb-8 items-center gap-2 justify-end">
-          <div className="inline-flex items-center justify-center w-19 h-15 bg-blue-600 rounded-full">
+        <div className="flex mb-8 items-center gap-4 justify-end">
+          <div className="inline-flex items-center justify-center w-20 h-15 bg-blue-600 rounded-full">
             <IndianRupee className="w-7 h-7 text-white w-5 h-5" />
           </div>
-          <h2 className="text-2xl font-bold text-blue-700"> Expense Tracker</h2>
+          <h2 className="text-2xl font-bold text-blue-700">Expense Tracker</h2>
         </div>
 
         <div className="space-y-2 flex-1">
