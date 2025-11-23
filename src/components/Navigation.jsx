@@ -9,7 +9,7 @@ import {
 
 import { NavLink } from "react-router-dom";
 
-const Navigation = () => {
+const Navigation = ({ setIsOpen }) => {
   const linkClassesSidebar = ({ isActive }) =>
     `w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors  
      ${
@@ -67,7 +67,10 @@ const Navigation = () => {
           </NavLink>
         </div>
 
-        <button className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+        <button
+          onClick={() => setIsOpen(true)}
+          className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        >
           <Plus className="w-5 h-5" />
           Add Expense
         </button>

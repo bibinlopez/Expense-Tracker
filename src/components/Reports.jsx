@@ -14,6 +14,8 @@ const Reports = () => {
 
   const { monthStr, month, year } = dateValues(new Date(), months);
 
+  const url = `${import.meta.env.VITE_BASE_API_URL}/${month}/${year}`;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -64,8 +66,8 @@ const Reports = () => {
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-2">
                         <div
-                          className="w-3 h-3 rounded-full"
-                          style={{ backgroundColor: "red" }}
+                          className="w-4 h-4  rounded-full flex-shrink-0 mr-5"
+                          style={{ backgroundColor: category.color }}
                         />
                         {category.name}
                       </div>

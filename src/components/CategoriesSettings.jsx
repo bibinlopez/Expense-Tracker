@@ -13,6 +13,8 @@ const CategoriesSettings = ({ date, months }) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  const url = `${import.meta.env.VITE_BASE_API_URL}/${month}/${year}`;
+
   useEffect(() => {
     const fetchData = async () => {
       try {

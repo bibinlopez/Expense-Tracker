@@ -11,12 +11,14 @@ const AuthPage = () => {
 
   const navigate = useNavigate();
 
+  const url = `${import.meta.env.VITE_BASE_API_URL}/auth`;
+
   const handleSubmit = async (e) => {
     setEmail("");
     setPassword("");
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:4000/auth", {
+      const response = await axios.post(url, {
         email,
         password,
       });

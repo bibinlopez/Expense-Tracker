@@ -1,6 +1,8 @@
 import React from "react";
 
-const ExpenseModal = () => {
+const ExpenseModal = ({ isOpen, setIsOpen }) => {
+  if (!isOpen) return null;
+
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-lg w-full max-w-md">
@@ -59,22 +61,10 @@ const ExpenseModal = () => {
             />
           </div>
 
-          {/* Description */}
-          <div>
-            <label htmlFor="description" className="block mb-2">
-              Description (optional)
-            </label>
-            <input
-              id="description"
-              type="text"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="e.g., Grocery shopping"
-            />
-          </div>
-
           {/* Actions */}
           <div className="flex gap-3 pt-4">
             <button
+              onClick={() => setIsOpen(false)}
               type="button"
               className="flex-1 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
             >

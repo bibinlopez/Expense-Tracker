@@ -25,6 +25,8 @@ const CategoryModal = ({ userId, edit, title, date, isOpen, setIsOpen }) => {
   );
   const [loading, setLoading] = useState(false);
 
+  const url = `${import.meta.env.VITE_BASE_API_URL}/category`;
+
   const handleSubmit = async (e) => {
     setName("");
     setBudget(0);
