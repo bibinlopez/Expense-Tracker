@@ -14,17 +14,14 @@ const Reports = () => {
 
   const { monthStr, month, year } = dateValues(new Date(), months);
 
-  const url = `${import.meta.env.VITE_BASE_API_URL}/${month}/${year}`;
+  const url = `${import.meta.env.VITE_BASE_API_URL}/category/${month}/${year}`;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:4000/category/${month}/${year}`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        );
+        const response = await axios.get(url, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
         const categories = response?.data?.categories;
         setCategories(categories);
       } catch (err) {

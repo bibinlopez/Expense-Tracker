@@ -34,7 +34,7 @@ const CategoryModal = ({ userId, edit, title, date, isOpen, setIsOpen }) => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:4000/category",
+        url,
         {
           name,
           budget,
