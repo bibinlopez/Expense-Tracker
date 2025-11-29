@@ -23,5 +23,7 @@ messaging.onBackgroundMessage((payload) => {
     icon: payload.notification.image,
   }
 
+  console.log({ notificationTitle, notificationOptions })
+
   self.registration.showNotification(notificationTitle, notificationOptions)
 })
